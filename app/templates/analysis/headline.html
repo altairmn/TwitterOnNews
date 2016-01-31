@@ -1,0 +1,35 @@
+{% extends 'analysis/dashboard.html' %}
+
+{% block head %}
+    {{ super() }}
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
+{% endblock head %}
+
+{% block content %}
+<div id='headline-content'>
+    <h1 class='headline'> {{ headline }} </h1>
+</div>
+
+<hr>
+
+<div id='headline-tweets'>
+    {% for tweet_html in tweets_html %}
+        {{ tweet_html|safe }}
+    {% endfor %}
+</div>
+
+{% endblock content %}
+
+{% block script %}
+    {{ super() }}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.jmHighlight.min.js') }}"></script>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/headline_custom.js') }}"></script>
+    <script type="text/javascript">
+        {% for keyword in keywords %}
+            highlight_keyword('headline', '{{ keyword }}' );
+        {% endfor %}
+    </script>
+{% endblock script %}
