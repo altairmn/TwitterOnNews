@@ -58,8 +58,6 @@ qtconsole==4.1.1
 readline==6.2.4.1
 requests==2.8.1
 requests-oauthlib==0.6.0
-scikit-learn==0.17
-scipy==0.16.1
 semver==2.3.1
 simplegeneric==0.8.1
 six==1.7.3
